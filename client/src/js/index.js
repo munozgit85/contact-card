@@ -1,6 +1,7 @@
 import "./form";
 import "./submit";
-import { initdb } from "./ database";
+import { initdb, getDb, postDb } from "./database";
+import { fetchCards } from "./cards";
 
 // Import CSS files
 import "../css/index.css";
@@ -14,6 +15,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 window.addEventListener("load", function () {
   initdb();
+  fetchCards();
   document.getElementById("logo").src = Logo;
   document.getElementById("bearThumbnail").src = Bear;
   document.getElementById("dogThumbnail").src = Dog;
