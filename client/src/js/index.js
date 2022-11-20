@@ -2,6 +2,7 @@
 import { initdb, postDb, deleteDb, editDb } from "./database";
 import { fetchCards } from "./card";
 import { toggleForm, clearForm } from "./form";
+const installBtn = document.getElementById("installBtn");
 
 // Import CSS files
 import "../css/index.css";
@@ -105,3 +106,18 @@ if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("./service-worker.js");
   });
 }
+
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  installBtn.style.visibility = "visible";
+
+  installBtn.addEventListener("click", () => {
+    event.prompt();
+    installBtn.setAttribute("disabled", true);
+    installBtn.textContent = "Installed!";
+  });
+});
+
+window.addEventListener("appinstalled", (event) => {
+  console.log("👍", "appinstalled", event);
+});
