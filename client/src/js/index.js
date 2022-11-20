@@ -1,7 +1,7 @@
 import "./form";
 import "./submit";
-import { initdb, getDb, postDb } from "./database";
-import { fetchCards } from "./cards";
+import { initdb, getDb, postDb, deleteDb } from "./ database";
+import { fetchCards } from "./card";
 
 // Import CSS files
 import "../css/index.css";
